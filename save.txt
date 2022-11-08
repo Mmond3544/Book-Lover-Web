@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <td>เลือกรายชื่อหนังสือที่ชอบ</td>
+    <td>
+    <?php
+      $sql_1="SELECT * FROM tbl_book ORDER BY BookID ASC";
+      $qry_1 = mysql_query($sql_1,$surachet) or die(mysql_error());
+      while ($data_1 = mysql_fetch_array($qry_1)) {  ?>
+        <input type="checkbox" name="cb[]" id="<?php echo $data_1['BookID']; ?>" value="<?php echo $data_1['BookID']; ?>" onclick=""><label for="<?php echo $data_1['BookID']; ?>"><?php echo $data_1['bk'];?></label>
+        <br>
+    <?php } ?>
+  </td>
+  </tr>
+</table>
+
+
+<input type="checkbox" name="<?php echo $data_1['BookID']; ?>" id="<?php echo $data_1['BookID']; ?>" value="1" <?php if (!(strcmp(1, $data_1['BookID']))) {echo "checked=\"checked\"";} ?>>
+<label for="<?php echo $data_1['BookID']; ?>"><?php echo $data_1['bk'];?></label>
